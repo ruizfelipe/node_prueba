@@ -1,0 +1,28 @@
+{
+  "name": "node_prueba",
+  "version": "1.0.0",
+  "description": "Proyecto en NodeJS para pruebas ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruizfelipe/node_prueba.git"
+  },
+  "keywords": [
+    "nodejs",
+    "test"
+  ],
+  "author": "ruizfelipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruizfelipe/node_prueba/issues"
+  },
+  "homepage": "https://github.com/ruizfelipe/node_prueba#readme",
+  "devDependencies": {
+    "chai": "*",
+    "express": "^4.17.1",
+    "mocha": "*"
+  }
+}
