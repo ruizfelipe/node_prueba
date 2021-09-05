@@ -5,6 +5,6 @@ const helloWorldText = index.helloWord();
 
 describe('Pruebas index', function(){
     it('Se espera el texto hola mundo', function(){
-        assert.equal(helloWorldText, 'hola mundo1');
+        assert.equal(helloWorldText, 'hola mundo');
 })
 });
