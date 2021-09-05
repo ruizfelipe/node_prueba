@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('copy'){
+            steps {
+                 git 'https://github.com/ruizfelipe/node_prueba.git'
+            }
+        }
+        stage ('install') {
+            steps {
+                bat "npm install"
+            }
+        }
+        stage ('test') {
+            steps {
+                bat "npm run test"
+            }
+        }
+    }
+}
