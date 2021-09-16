@@ -1,10 +1,14 @@
 const assert = require('chai').assert;
-const index = require('../index');
+const {app, server, helloWord} = require('../index');
 
-const helloWorldText = index.helloWord();
+const helloWorldText = helloWord();
 
 describe('Pruebas index', function(){
     it('Se espera el texto hola mundo', function(){
         assert.equal(helloWorldText, 'hola mundo');
 })
 });
+
+afterEach(() => {
+    server.close()
+} )
