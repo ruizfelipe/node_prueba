@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const {app, server, helloWord} = require('../index');
+const {app, server, helloWord} = require('../src/index');
 
 const helloWorldText = helloWord();
 

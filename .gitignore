@@ -1,2 +1,8 @@
 # Ignora la carpeta node_modules
 node_modules
+# Ignora la carpeta .scannerwork
+.scannerwork
+# Ignora la carpeta coverage
+coverage
+# Ignora la carpeta .nyc_output
+.nyc_output

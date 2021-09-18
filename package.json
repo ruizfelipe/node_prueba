@@ -4,7 +4,8 @@
   "description": "Proyecto en NodeJS para pruebas ",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -R mocha-sonar-reporter",
+    "coverage": "nyc --reporter lcov npm run test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,9 @@
   "devDependencies": {
     "chai": "*",
     "express": "^4.17.1",
-    "mocha": "*"
+    "mocha": "*",
+    "mocha-sonar-reporter": "^0.1.6",
+    "nyc": "^15.1.0",
+    "sonarqube-scanner": "^2.8.1"
   }
 }
