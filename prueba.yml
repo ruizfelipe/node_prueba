@@ -15,6 +15,15 @@
     - repo_branch: main
 
   tasks:
+    - name: update apt list
+      apt: 
+        update_cache: yes
+
+    - name: Install nginx
+      apt: pkg=nginx state=latest
+      notify: 
+        - start nginx
+
     - name: Create App Directory
       ansible.builtin.file: 
         path: "{{homeDir}}/{{appDir}}" 
@@ -43,15 +52,6 @@
       with_together:
         - ['prueba.conf']
         - ['/etc/nginx/sites-available/prueba.conf']
-    
-    - name: update apt list
-      apt: 
-        update_cache: yes
-
-    - name: Install nginx
-      apt: pkg=nginx state=latest
-      notify: 
-        - start nginx
         
     - name: Remove files
       file:
