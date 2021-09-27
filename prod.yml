@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   become: true
+  remote_user: fruiz
   
   vars:
     - homeDir:  /home/fruiz
@@ -10,10 +11,19 @@
     - privateKey: /home/fruiz/.ssh/id_rsa
     - server_port: 8081
     - git_repo_url: https://github.com/ruizfelipe/node_prueba.git
-    - repo_path: /home/ubuntu/prod
+    - repo_path: /home/fruiz/prod
     - repo_branch: main
 
   tasks:
+    - name: update apt list
+      apt: 
+        update_cache: yes
+
+    - name: Install nginx
+      apt: pkg=nginx state=latest
+      notify: 
+        - start nginx
+    
     - name: Create App Directory
       ansible.builtin.file: 
         path: "{{homeDir}}/{{appDir}}" 
@@ -40,17 +50,8 @@
         dest: "{{ item.1 }}"
         mode: "0400"
       with_together:
-        - ['prueba.conf']
-        - ['/etc/nginx/sites-available/prueba.conf']
-    
-    - name: update apt list
-      apt: 
-        update_cache: yes
-
-    - name: Install nginx
-      apt: pkg=nginx state=latest
-      notify: 
-        - start nginx
+        - ['prod.conf']
+        - ['/etc/nginx/sites-available/prod.conf']
         
     - name: Remove files
       file:
@@ -62,8 +63,8 @@
         
     - name: Create a symbolic link
       file:
-        src: /etc/nginx/sites-available/prueba.conf
-        dest: /etc/nginx/sites-enabled/prueba.conf
+        src: /etc/nginx/sites-available/prod.conf
+        dest: /etc/nginx/sites-enabled/prod.conf
         state: link  
         
     - name: Restart nginx service
