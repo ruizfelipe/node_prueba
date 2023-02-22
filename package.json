@@ -23,7 +23,7 @@
   "homepage": "https://github.com/ruizfelipe/node_prueba#readme",
   "devDependencies": {
     "chai": "*",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "mocha": "*",
     "mocha-sonar-reporter": "^0.1.6",
     "nyc": "^15.1.0",
